@@ -10,7 +10,7 @@ Date.prototype.isValid = function () {
 module.exports = function validateWordInput(data) {
   let errors = {};
   ['word','sound'].forEach(function(elem) {
-    data[elem] = !isEmpty(data[elem]) ? Validator.escape(data[elem]) : '';
+    data[elem] = !isEmpty(data[elem]) ? data[elem] : '';
   });
 
   if (data.date_entered) {

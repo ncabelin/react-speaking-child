@@ -17,10 +17,6 @@ router.get('/', passport.authenticate('jwt', {session:false}), (req, res) => {
   const errors = {};
   Word.find({'user.id': req.user.id})
     .then(words => {
-      // if (words.length == 0) {
-      //   errors.nowords = 'There are no words yet';
-      //   return res.status(404).json(errors);
-      // }
       res.json(words);
     })
     .catch(err => res.status(404).json(err));
@@ -48,17 +44,35 @@ router.post('/', passport.authenticate('jwt', {session:false}), (req,res) => {
   if (!isValid) {
     return res.status(400).json(errors);
   }
-  console.log(req.user.id);
   const newWord = new Word({
     user: {
       id: req.user.id
     },
     word: req.body.word,
-    sound: req.body.sound,
-    date_entered: req.body.date_entered
+    sound: req.body.sound
   });
 
   newWord.save().then(word => res.json(word));
 });
+
+// @route   PUT api/word/:id
+// @desc    Update word
+// @access  Private
+router.put('/:id', passport.authenticate('jwt', {session:false}), (req, res) => {
+  const { errors, isValid } = validateWordInput(req.body);
+  Word.findOneAndUpdate(
+    { _id:req.params.id,'user.id':req.user.id },
+    { $set: {
+        word: req.body.word,
+        sound: req.body.sound
+      }
+    },
+    { new: true }
+  )
+    .then(word => {
+      res.json(word);
+    })
+    .catch(err => res.status(404).json({nowordfound: 'Unable to update word'}));
+  });
 
 module.exports = router;
