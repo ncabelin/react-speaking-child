@@ -22,39 +22,7 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
-  },
-  words: [
-    {
-      word:  {
-        type: String,
-        required: true
-      },
-      sound:  {
-        type: String,
-        required: true
-      },
-      date_entered:  {
-        type: Date,
-        required: true
-      }
-    }
-  ],
-  phrases: [
-    {
-      phrase:  {
-        type: String,
-        required: true
-      },
-      sound:  {
-        type: String,
-        required: true
-      },
-      date_entered:  {
-        type: Date,
-        required: true
-      }
-    }
-  ]
+  }
 });
 
 module.exports = User = mongoose.model('users',UserSchema);
