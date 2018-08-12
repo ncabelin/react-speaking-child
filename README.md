@@ -13,8 +13,15 @@ USERS
 
 WORDS
   _id
-  
+  word
+  sound
+  date_entered
+
 PHRASES
+  _id
+  phrase
+  sound
+  date_entered
 ```
 
 ## License
