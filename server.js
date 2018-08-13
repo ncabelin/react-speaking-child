@@ -7,6 +7,8 @@ const passport = require('passport');
 
 const users = require('./routes/api/users');
 const words = require('./routes/api/words');
+const phrases = require('./routes/api/phrases');
+
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
