@@ -12,7 +12,7 @@ const PhraseSchema = new Schema({
   },
   date_entered:  {
     type: Date,
-    required: true
+    default: Date.now
   }
 });
 
