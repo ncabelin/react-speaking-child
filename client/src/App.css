@@ -1,28 +1,391 @@
-.App {
-  text-align: center;
+body, html {
+	font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  height: 100%;
+  color: black;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  background-size: cover;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+#landing .btn-lg {
+  border-radius: 25px;
+  padding: 10px 30px;
+  background-color: #3f8f3e;
+  border: 0;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+#landing h1 {
+  margin-bottom: 20px;
+}
+
+#about {
+  background-color: white;
+}
+
+.navbar-default .navbar-nav>li>a, a.navbar-brand.title {
   color: white;
 }
 
-.App-title {
+.navbar {
+  border-radius: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: 0;
+}
+
+.navbar-nav>li>a {
+  text-align: right;
+  z-index: 100;
+}
+
+.navbar-default {
+  border: 0;
+  background: #005a98;
+}
+
+.navbar-default .navbar-toggle, .navbar-default:hover {
+  border-color: rgba(221, 221, 221, 0);
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: white;
+}
+
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 28px;
+  height: 3px;
+  border-radius: 1px;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+  background-color: rgba(0,0,0,0);
+}
+
+.navbar-nav>li>a:hover {
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+}
+
+.alerts, .alert {
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.well {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #f0eded;
+  border: 0;
+  border-radius: 0;
+}
+
+.well.search {
+	background-color: #f0eded;
+  margin: 0;
+  border: 0;
+}
+
+.form-heading {
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+hr {
+  border-top-color: #a8b0f9;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+#hero {
+  min-height: 400px;
+  position: relative;
+  display: table;
+  width: 100%;
+  padding: 40px 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background: url(https://res.cloudinary.com/dd6kwd0zn/image/upload/v1504779750/aaron-mello-137671-_1_yn1hbx.jpg) center center;
+  background-size: cover;
+}
+
+#hero article {
+  width: 100%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+h1,h2,h4 a#title.navbar-brand {
+	font-family: 'Montserrat', sans-serif;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+.length-window {
+  background-color: black;
+  color: white;
+  font-size: 1.5em;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+a#title.navbar-brand {
+  color: black;
+  font-size: 1.2em;
+}
+
+.features {
+  margin-top: 100px;
+  color: black;
+  text-align: left;
+  font-weight: 300;
+  font-size: 1.5em;
+  list-style: none;
+}
+
+.features span {
+  font-size: 1.2em;
+}
+
+tbody tr, .well.phrases {
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0);
+}
+
+tbody tr, .well.phrases:hover {
+	background-color: #0a7dcd;
+  color: white;
+}
+
+.addMsg {
+  color: green;
+}
+
+.list-group:hover {
+  cursor: pointer;
+}
+
+.list-group-item {
+  border: 1px solid #898888;
+}
+
+.form-control {
+  font-size: 18px;
+}
+
+#word-view {
+  background-color: white;
+  background-position: fixed;
+  height: 100%;
+}
+
+#word-view .btn {
+  margin: 5px;
+}
+
+.well.resolved {
+  border-top: 5px solid green;
+  background-color: #f4f4f4;
+}
+
+.well.unresolved {
+  border-top: 5px solid #ef2c3c;
+  background-color: #f4f4f4;
+}
+
+.match {
+  color: #44b649;
+  font-weight: bold;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.btn-menu, .btn-menu:hover {
+  /*background-color: #fafafa;
+  color: #024e83;*/
+  background-color: #024e83;
+  color: #fafafa;
+  font-size: 25px;
+  letter-spacing: 1px;
+  border: 1px solid #005a98;
+}
+
+.btn-menu.active, .btn-menu.active:hover {
+  background-color: #fa8003;
+  color: white;
+  border: #d56e04;
+}
+
+#sub-menu {
+  z-index: 4;
+  position: fixed;
+  bottom: 0;
+}
+
+.affix {
+  top: 0;
+}
+
+h3 {
+  margin-top: 10px;
+}
+
+.btn {
+  border-radius: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.word-search {
+  padding-bottom: 10px;
+  max-width: 500px;
+}
+
+#add-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  color: white;
+  background-color: #3f8f3e;
+  margin: 10px auto;
+  width: 20%;
+  padding: 10px 40px;
+  border-radius: 20px;
+  border: 0;
+  cursor: pointer;
+}
+
+#about {
+  padding: 50px 20px;
+}
+
+#about h3 {
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+#help_section {
+  background-color: rgba(255,255,255,0.6);
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.faq {
+  color: #fa8003;
+}
+.fa-child {
+  text-align: center;
+  font-size: 3em;
+}
+
+ol {
+	line-height: 2;
+}
+
+footer {
+  color: white;
+  padding: 40px;
+  min-height: 300px;
+  position: relative;
+  background-color: #005a98;
+}
+
+footer p a {
+  color: white;
+  text-decoration: underline;
+}
+
+.list-inline>li {
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .navbar-default .navbar-nav>li>a {
+    text-align: center;
+  }
+  .features {
+    margin-top: 50px;
+    font-weight: 400;
+    font-size: .8em;
+  }
+  .features span {
+    font-size: 1.1em;
+  }
+  .features hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  #landing .btn-lg {
+    padding: 10px 20px;
+    font-size: .8em;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
+	#about h3 {
+	  font-size: 2em;
+	}
+}
+
+@media screen and (max-width: 991px) {
+  #word-view .well {
+    padding: 5px;
+    text-decoration: center;
+    font-size: 1em;
+  }
+
+  #word-view .well h3 {
+    font-size: 1em;
+    text-align: center;
+  }
+  #word-view .well p {
+    font-size: .9em;
+    text-align: center;
+  }
+  #add-btn {
+    width: 100%;
+    margin:0;
+    border-radius: 0;
+    font-size: .8em;
+    padding: 10px;
+  }
+  #guide {
+    padding:0;
+    margin:0;
+    overflow: scroll;
+  }
+  .btn-menu, .length-window, .btn-menu:hover {
+    font-size: .9em;
+  }
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+  }
+  .navbar-default .navbar-nav>li>a {
+    color: white;
+    background-color: rgba(0,0,0,0);
+  }
+  .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: white;
+    background-color: black;
+  }
+  .list-group-item {
+    background-color: #fafafa;
+  }
+  .list-group-item .well {
+    background-color: rgba(0,0,0,0);
+    border: 0;
+  }
+  .list-group-item h2 {
+    font-size: 1em;
+  }
 }
