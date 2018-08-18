@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authAction';
 import TextFieldGroup from '../common/TextFieldGroup';
@@ -11,15 +10,28 @@ class Register extends Component {
     super();
 
     this.state = {
-      name: '',
+      childname: '',
       email: '',
       password: '',
       password2: '',
+      birthday: '',
       errors: {}
     }
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({errors: nextProps.errors});
+    }
   }
 
   onChange(e) {
@@ -29,9 +41,10 @@ class Register extends Component {
   onSubmit(e) {
     e.preventDefault();
     const newUser = {
-      name: this.state.name,
+      childname: this.state.childname,
       email: this.state.email,
       password: this.state.password,
+      birthday: this.state.birthday,
       password2: this.state.password2
     }
     console.log(newUser);
@@ -40,6 +53,7 @@ class Register extends Component {
 
   render() {
     const { errors } = this.state;
+    console.log(errors);
     return (
       <div className="register">
         <div className="container">
@@ -48,10 +62,18 @@ class Register extends Component {
               <h1 className="display-4 text-center">Register</h1>
               <form onSubmit={this.onSubmit}>
                 <TextFieldGroup
-                  placeholder="Name"
-                  name="name"
-                  value={this.state.name}
+                  placeholder="Child Name"
+                  name="childname"
+                  value={this.state.childname}
                   error={errors.name}
+                  type="text"
+                  onChange={this.onChange}
+                />
+                <TextFieldGroup
+                  placeholder="Birthday MM/DD/YYYY"
+                  name="birthday"
+                  value={this.state.birthday}
+                  error={errors.birthday}
                   type="text"
                   onChange={this.onChange}
                 />
