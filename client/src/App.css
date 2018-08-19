@@ -337,6 +337,11 @@ footer p a {
 	}
 }
 
+.invalid-feedback {
+  color: red;
+  font-size: 11px;
+}
+
 @media screen and (max-width: 991px) {
   #word-view .well {
     padding: 5px;
