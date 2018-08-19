@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TextFieldGroup from '../common/TextFieldGroup';
+import { loginUser } from '../../actions/authAction';
 
 class Login extends Component {
   constructor() {
@@ -23,7 +24,28 @@ class Login extends Component {
   }
 
   onSubmit(e) {
-    console.log('submitted');
+    e.preventDefault();
+    const loginCredentials = {
+      email: this.state.email,
+      password: this.state.password
+    }
+    this.props.loginUser(loginCredentials);
+  }
+
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+
+    if (nextProps.errors) {
+      this.setState({errors: nextProps.errors});
+    }
   }
 
   render() {
@@ -72,4 +94,4 @@ const mapStateToProps = (state) => ({
   errors: state.errors
 });
 
-export default Login;
+export default connect(mapStateToProps, {loginUser})(Login);
