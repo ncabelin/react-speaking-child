@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getAllWords } from '../../actions/dataAction';
 
-class Dashboard extends Component {
+class WordDashboard extends Component {
   componentDidMount() {
     this.props.getAllWords();
   }
@@ -28,7 +28,7 @@ class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
-  getAllWords: PropTypes.func.isRequired,
+  getAllWords: PropTypes.array.isRequired,
   auth: PropTypes.object.isRequired
 }
 
@@ -36,3 +36,5 @@ const mapStateToProps = state => ({
   words: state.words,
   auth: state.auth
 });
+
+export default connect(mapStateToProps, { getAllWords })(WordDashboard);

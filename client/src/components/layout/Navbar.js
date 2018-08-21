@@ -14,7 +14,9 @@ class Navbar extends Component {
     const { isAuthenticated, user } = this.props.auth;
     const authLinks = (
       <ul className="nav navbar-nav navbar-right">
-        <li><Link to="/dashboard" className="ng-binding">Child: {user.childname}</Link></li>
+        <li>Child: {user.childname}</li>
+        <li><Link to="/word-dashboard" className="">Words</Link></li>
+        <li><Link to="/phrase-dashboard" className="">Phrases</Link></li>
         <li><a href="" onClick={this.onLogoutClick.bind(this)}>Logout</a></li>
       </ul>
     )
