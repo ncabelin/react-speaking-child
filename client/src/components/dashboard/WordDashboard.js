@@ -27,7 +27,7 @@ class WordDashboard extends Component {
 
 }
 
-Dashboard.propTypes = {
+WordDashboard.propTypes = {
   getAllWords: PropTypes.array.isRequired,
   auth: PropTypes.object.isRequired
 }
