@@ -38,7 +38,7 @@ class Navbar extends Component {
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
-                <Link to="/"><img src="speakingchild_logo2.png" className="navbar-brand logo" alt="" /></Link>
+                <Link to="/"><img src="https://res.cloudinary.com/dd6kwd0zn/image/upload/v1535007460/speakingchild_logo2_pkywq6.png" className="navbar-brand logo" alt="" /></Link>
               </div>
               <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 { isAuthenticated ? authLinks : guestLinks }
