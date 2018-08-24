@@ -18,3 +18,14 @@ export const getAllWords = () => dispatch => {
       });
     })
 }
+
+// create new word
+export const addWord = (wordData, history) => dispatch => {
+  axios
+    .post('/api/word', qs.stringify(wordData))
+    .then(res => history.push('/word-dashboard'))
+    .catch(err => dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    }))
+};
