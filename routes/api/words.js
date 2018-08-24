@@ -36,7 +36,7 @@ router.get('/:id', passport.authenticate('jwt', {session:false}), (req, res) => 
     .catch(err => res.status(404).json({nowordfound: 'Word not found'}));
   });
 
-// @route   POST api/words
+// @route   POST api/word
 // @desc    Create word
 // @access  Private
 router.post('/', passport.authenticate('jwt', {session:false}), (req,res) => {
