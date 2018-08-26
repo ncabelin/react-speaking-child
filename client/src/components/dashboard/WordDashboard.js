@@ -11,7 +11,12 @@ class WordDashboard extends Component {
 
   render() {
     const { user } = this.props.auth;
+    const { words } = this.props.words;
+    let wordsContent;
 
+    if (words.length > 0) {
+      wordsContent = 'sample';
+    }
     return (
       <div className="dashboard">
         <div className="container">
